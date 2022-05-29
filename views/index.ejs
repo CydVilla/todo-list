@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+	<script src="https://kit.fontawesome.com/289010acce.js" crossorigin="anonymous"></script>
+    <title>Todo List</title>
+</head>
+<body>
+    <section id="container">
+			<h1>Todo List</h1>
+        <section id="top">
+            <form action="/createTask" method="POST">
+            <input type="text" id="inputText" name="task" >
+            <button type="button" id="addBtn">Add to List<i class="fa-solid fa-pencil"></i></button>
+        </form>
+        </section>
+        
+        <section id="middle-sec">
+            <section>
+                <ul id="list">
+                    <% for(i = 0; i < tasks.length; i++) { %>
+                      <% if (tasks[i].completed) { %>
+                        <li class="done lineThrough" onclick="handleToggle()" data-id=<%= tasks[i]._id %>><span id="task" ><%= tasks[i].task %></span><button onclick="deleteTask( '<%= tasks[i]._id %>')" class="deleteTask">X</button></li>
+                      <% } %>
+                      <% if (!tasks[i].completed) { %>
+                        <li onclick="handleToggle()" data-id=<%= tasks[i]._id %>><span id="task"><%= tasks[i].task %></span><button onclick="deleteTask( '<%= tasks[i]._id %>')" class="deleteTask">X</button></li>
+                      <% } %>
+                    <% } %>
+                  </ul>
+            </section>
+        </section>
+        <section id="bottom-sec">
+            <section>
+                <!-- <p>You have <span id="todosLeft">0</span> todos left.</p> -->
+                <button type="button" id="clearBtn">Clear All</button>
+                <button type="button" id="clearCompletedBtn">Clear Finished</button>
+            </section>
+        </section>
+        <audio controls autoplay muted loop>
+            <source src="music/nintendog.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+          </audio>
+    </section>
+
+    
+
+    <script type="text/javascript" src="main.js" class="audio"></script>
+</body>
+</html>
