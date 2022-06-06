@@ -3,7 +3,7 @@ Todo List allows the user to log their 'todos' and mark off todos for clearing u
 
 **Link to project:** https://cydvilla.github.io/todo-list/
 
-![alt tag](slot.gif)
+![alt tag](note.gif)
 
 ## How It's Made:
 
